@@ -1,10 +1,17 @@
-# todos
+# todo-backend-kemalyst
 
 Implementation of todos-backend in Crystal and Kemalyst.
 
+Running at (https://todo-backend-kemalyst.herokuapp.com/todos)[https://todo-backend-kemalyst.herokuapp.com/todos]
+
 ## Installation
 
-Uses Docker and Docker Compose.
+Uses Docker and Docker Compose to launch application.
+```
+docker-compose build
+docker-compose up web
+heroku docker:release
+```
 
 ## Development
 

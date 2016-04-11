@@ -6,16 +6,24 @@ class Todo < Kemalyst::Model
   
   def initialize()
     @id = 0
-    @name = ""
+    @uid = ""
+    @title = ""
+    @order = 0
+    @completed = false
   end
 
   sql_mapping({ 
-    name: "VARCHAR(255)" 
+    uid: "VARCHAR(255)",
+    title: "TEXT",
+    order: "INT",
+    completed: "BOOL"
   })
 
   JSON.mapping({
-    id: Int32,
-    name: String
+    uid: String,
+    title: String,
+    order: Int32,
+    completed: Boolean
   })
 
 
