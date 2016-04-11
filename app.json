@@ -1,0 +1,8 @@
+{
+  "name": "Todo's Backend",
+  "description": "Todo's Backend using Crystal and Kemalyst",
+  "image": "heroku/cedar",
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
