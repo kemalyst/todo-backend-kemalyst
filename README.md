@@ -1,22 +1,14 @@
 # todos
 
-TODO: Write a description here
+Implementation of todos-backend in Crystal and Kemalyst.
 
 ## Installation
 
-
-TODO: Write installation instructions here
-
-
-## Usage
-
-
-
-TODO: Write usage instructions here
+Uses Docker and Docker Compose.
 
 ## Development
 
-TODO: Write development instructions here
+Follow the normal open source procedures.
 
 ## Contributing
 
@@ -28,4 +20,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Dru Jensen - creator, maintainer
+- [[drujensen]](https://github.com/[drujensen]) Dru Jensen - creator, maintainer
