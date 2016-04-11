@@ -29,19 +29,11 @@ Kemalyst::Application.config do |config|
   # Session Handler requires that you change the `secret` in the config/session.cr
   # file.
 
-  # config.handlers = [
-  #   Kemalyst::Handler::Logger.instance(config.logger),
-  #   Kemalyst::Handler::Error.instance,
-  #   Kemalyst::Handler::Static.instance,
-  #   Kemalyst::Handler::Session.instance,
-  #   Kemalyst::Handler::Params.instance,
-  #   Kemalyst::Handler::Router.instance
-  # ]
-  
   # handlers will be chained in the order provided
   config.handlers = [
     Kemalyst::Handler::Logger.instance(config.logger),
     Kemalyst::Handler::Error.instance,
+    Kemalyst::Handler::Cors.instance,  # Add support for CORS headers
     Kemalyst::Handler::Params.instance,
     Kemalyst::Handler::Router.instance
   ] 

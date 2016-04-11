@@ -25,7 +25,7 @@ RUN mkdir -p /webapps/todo
 ADD . /webapps/todo
 WORKDIR /webapps/todo
 
-#RUN shards update
+RUN shards update
 
 EXPOSE 3000
 CMD ["crystal", "src/app.cr"]
