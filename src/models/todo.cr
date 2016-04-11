@@ -4,7 +4,9 @@ require "kemalyst/adapter/pg"
 class Todo < Kemalyst::Model
   adapter pg
   
-  def initialize(@name)
+  def initialize()
+    @id = 0
+    @name = ""
   end
 
   sql_mapping({ 
@@ -12,7 +14,7 @@ class Todo < Kemalyst::Model
   })
 
   JSON.mapping({
-    id: (Nil | Int32),
+    id: Int32,
     name: String
   })
 
