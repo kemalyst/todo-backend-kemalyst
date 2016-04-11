@@ -1,5 +1,5 @@
 pg:
-  host: db
+  host: herokuPostgresql
   port: 5432
   database: postgres
   username: postgres
