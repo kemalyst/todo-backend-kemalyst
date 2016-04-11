@@ -1,0 +1,15 @@
+name: todos
+version: 0.1.0
+
+authors:
+  - Dru Jensen <drujensen@gmail.com>
+
+license: MIT
+
+dependencies:
+  kemalyst:
+    github: drujensen/kemalyst
+    branch: master
+  pg:
+    github: will/crystal-pg
+    branch: master
