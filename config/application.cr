@@ -4,7 +4,7 @@ Kemalyst::Application.config do |config|
   # config.host = "0.0.0.0"
 
   # Set the port.  Defaults to 3000.
-  # config.port = 3000
+  config.port = (ENV["PORT"] ||= "5000").to_i
 
   # Set the environment. Defaults to development.
   # config.env = "development"

@@ -1,6 +1,6 @@
 web:
   build: .
-  command: 'crystal run src/app.cr"'
+  command: 'crystal run src/app.cr'
   working_dir: /app/user
   environment:
     PORT: 3000
