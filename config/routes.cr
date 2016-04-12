@@ -9,6 +9,6 @@ require "../src/controllers/*"
 get    "/",                 TodoController::HealthCheck.instance
 get    "/todos",            TodoController::Index.instance
 post   "/todos",            TodoController::Create.instance  
-get    "/todos/:id",        TodoController::Show.instance
-patch  "/todos/:id",        TodoController::Update.instance
+get    "/todos/:uid",       TodoController::Show.instance
+patch  "/todos/:uid",       TodoController::Update.instance
 delete "/todos",            TodoController::DeleteAll.instance
