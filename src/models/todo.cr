@@ -4,24 +4,19 @@ require "secure_random"
 
 class Todo < Kemalyst::Model
   adapter pg
+
+  property order : Int32
+  property url   : String
   
   @id = nil
   @uid = SecureRandom.hex(32).to_s
+  @url = ""
   @title = ""
   @sort = 0
-  # dummy field for json mapping.
   @order = 0
   @completed = false
   
   def initialize()
-  end
-
-  def order
-    @sort
-  end
-
-  def order=(order)
-    @sort = order
   end
 
   sql_mapping({ 
@@ -35,7 +30,8 @@ class Todo < Kemalyst::Model
     uid: String,
     title: String,
     order: Int32,
-    completed: Bool
+    completed: Bool,
+    url: String
   })
 
 

@@ -6,9 +6,10 @@ require "../src/controllers/*"
 # BasicAuth to a specific route using an array of handlers.
 # all    "/*",                Kemalyst::Handler::BasicAuth.instance("admin", "password")
 
-get    "/",                 TodoController::HealthCheck.instance
 get    "/todos",            TodoController::Index.instance
 post   "/todos",            TodoController::Create.instance  
+delete "/todos",            TodoController::DeleteAll.instance
 get    "/todos/:uid",       TodoController::Show.instance
 patch  "/todos/:uid",       TodoController::Update.instance
-delete "/todos",            TodoController::DeleteAll.instance
+delete "/todos/:uid",       TodoController::Delete.instance
+
