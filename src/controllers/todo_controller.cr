@@ -17,11 +17,11 @@ module TodoController
 
   class Show < Kemalyst::Controller
     def call(context)
-      id = context.params["id"]
-      if todo = Todo.find id
+      uid = context.params["uid"]
+      if todo = Todo.all("WHERE uid = :uid", {"uid" => uid})
         json todo.to_json, 200
       else
-        json "Todo with id:#{id} could not be found".to_json, 404
+        json "Todo with uid:#{uid} could not be found".to_json, 404
       end
     end
   end
@@ -29,7 +29,7 @@ module TodoController
   class Create < Kemalyst::Controller
     def call(context)
       if todo = Todo.new
-        todo.name = context.params["name"] as String
+        todo.title = context.params["title"] as String
         todo.save()
       end
       if id = todo.id
@@ -43,8 +43,8 @@ module TodoController
   class Update < Kemalyst::Controller
     def call(context)
       id = context.params["id"]
-      if todo = Todo.find id 
-        todo.name = context.params["name"] as String
+      if todo = Todo.find id
+        todo.title = context.params["title"] as String
         todo.save
         json todo.to_json, 204
       else

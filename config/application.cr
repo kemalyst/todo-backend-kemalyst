@@ -33,8 +33,8 @@ Kemalyst::Application.config do |config|
   config.handlers = [
     Kemalyst::Handler::Logger.instance(config.logger),
     Kemalyst::Handler::Error.instance,
-    Kemalyst::Handler::Cors.instance,  # Add support for CORS headers
     Kemalyst::Handler::Params.instance,
+    Kemalyst::Handler::Cors.instance,  # Add support for CORS headers
     Kemalyst::Handler::Router.instance
   ] 
 end

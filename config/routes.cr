@@ -10,5 +10,5 @@ get    "/",                 TodoController::HealthCheck.instance
 get    "/todos",            TodoController::Index.instance
 post   "/todos",            TodoController::Create.instance  
 get    "/todos/:id",        TodoController::Show.instance
-put    "/todos/:id",        TodoController::Update.instance
+patch  "/todos/:id",        TodoController::Update.instance
 delete "/todos",            TodoController::DeleteAll.instance
