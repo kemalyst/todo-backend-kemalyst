@@ -18,7 +18,7 @@ module TodoController
           todo = todos.first
           todo.url = "https://todo-backend-kemalyst.herokuapp.com/todos/#{todo.uid}"
           todo.order = todo.sort
-          json todos.first.to_json, 200
+          json todo.to_json, 200
         else
           json "Todo with uid:#{uid} could not be found".to_json, 404
         end

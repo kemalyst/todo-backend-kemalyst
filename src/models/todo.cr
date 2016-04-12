@@ -5,9 +5,6 @@ require "secure_random"
 class Todo < Kemalyst::Model
   adapter pg
 
-  property order : Int32
-  property url   : String
-  
   @id = nil
   @uid = SecureRandom.hex(32).to_s
   @url = ""
