@@ -4,11 +4,24 @@ web:
   working_dir: /app/user
   environment:
     PORT: 3000
-    DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
+    DATABASE_URL: 'postgres://postgres:@pg:5432/postgres'
   ports:
     - '80:3000'
   links:
-    - herokuPostgresql
+    - pg
+  volumes:
+    - '.:/app/user'
+test:
+  build: .
+  command: 'crystal spec'
+  working_dir: /app/user
+  environment:
+    PORT: 3000
+    DATABASE_URL: 'postgres://postgres:@pg:5432/postgres'
+  ports:
+    - '80:3000'
+  links:
+    - pg
   volumes:
     - '.:/app/user'
 shell:
@@ -17,12 +30,12 @@ shell:
   working_dir: /app/user
   environment:
     PORT: 3000
-    DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
+    DATABASE_URL: 'postgres://postgres:@pg:5432/postgres'
   ports:
     - '80:3000'
   links:
-    - herokuPostgresql
+    - pg
   volumes:
     - '.:/app/user'
-herokuPostgresql:
+pg:
   image: postgres
