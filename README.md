@@ -1,6 +1,6 @@
 # todo-backend-kemalyst
 
-Implementation of todos-backend in Crystal and Kemalyst.
+Implementation of todos-backend in Crystal and Kemalyst. [![Build Status](https://travis-ci.org/drujensen/todos-backend-kemalyst.svg?branch=master)](https://travis-ci.org/drujensen/todos-backend-kemalyst)
 
 Kemalyst and this project is a WIP.
 
