@@ -1,12 +1,16 @@
 require "../models/todo"
+require "../views/todo_view"
 
+# The TodoController module contains all of the Handlers for each route.  It's
+# responsible for looking up the model and passing it to the view to be
+# rendered.
 module TodoController
 
   class Index < Kemalyst::Controller
     def call(context)
       todos = Todo.all
-      todos.map {|todo| todo.order = todo.sort; todo.url = "https://todo-backend-kemalyst.herokuapp.com/todos/#{todo.uid}" }
-      json todos.to_json, 200
+      views = todos.map {|todo| TodoView.new(todo) }
+      json views.to_json, 200
     end
   end
 
@@ -15,10 +19,8 @@ module TodoController
       uid = context.params["uid"]
       if todos = Todo.all("WHERE uid = :uid", {"uid" => uid})
         unless todos.empty?
-          todo = todos.first
-          todo.url = "https://todo-backend-kemalyst.herokuapp.com/todos/#{todo.uid}"
-          todo.order = todo.sort
-          json todo.to_json, 200
+          view = TodoView.new(todos.first)
+          json view.to_json, 200
         else
           json "Todo with uid:#{uid} could not be found".to_json, 404
         end
@@ -31,21 +33,12 @@ module TodoController
   class Create < Kemalyst::Controller
     def call(context)
       if todo = Todo.new
-        if context.params.has_key? "title"
-          todo.title = context.params["title"] as String
-        end
-        if context.params.has_key? "completed"
-          todo.completed = context.params["completed"] as Bool
-        end
-        if context.params.has_key? "order"
-          todo.order = (context.params["order"] as Int64).to_i32
-          todo.sort = todo.order
-        end
-        todo.url = "https://todo-backend-kemalyst.herokuapp.com/todos/#{todo.uid}"
+        todo.update(context.params)
         todo.save()
       end
-      if id = todo.id
-        json todo.to_json, 201
+      if todo.id
+        view = TodoView.new(todo)
+        json view.to_json, 201
       else
         json "Could not create Todo.".to_json, 400
       end
@@ -56,19 +49,10 @@ module TodoController
     def call(context)
       uid = context.params["uid"]
       if todo = Todo.all("WHERE uid = :uid", {"uid" => uid}).first
-        if context.params.has_key? "title"
-          todo.title = context.params["title"] as String
-        end
-        if context.params.has_key? "completed"
-          todo.completed = context.params["completed"] as Bool
-        end
-        if context.params.has_key? "order"
-          todo.order = (context.params["order"] as Int64).to_i32
-          todo.sort = todo.order
-        end
-        todo.url = "https://todo-backend-kemalyst.herokuapp.com/todos/#{todo.uid}"
+        todo.update(context.params)
         todo.save
-        json todo.to_json, 200
+        view = TodoView.new(todo)
+        json view.to_json, 200
       else
         json "Todo with id:#{uid} could not be found".to_json, 404
       end

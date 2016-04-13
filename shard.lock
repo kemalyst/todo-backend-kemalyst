@@ -12,6 +12,10 @@ shards:
     github: jeromegn/kilt
     commit: 332015badce121b624b757ddc494b3162ac49da9
 
+  mocks:
+    github: waterlink/mocks.cr
+    version: 0.8.0
+
   pg:
     github: will/crystal-pg
     commit: cafe38b532b859122337455aa09afeac4f8deeaa

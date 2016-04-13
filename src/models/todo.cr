@@ -5,15 +5,26 @@ require "secure_random"
 class Todo < Kemalyst::Model
   adapter pg
 
-  @id = nil
-  @uid = SecureRandom.hex(32).to_s
-  @url = ""
-  @title = ""
-  @sort = 0
-  @order = 0
-  @completed = false
   
-  def initialize()
+  def initialize
+    @id = nil
+    @uid = SecureRandom.hex(32).to_s
+    @title = ""
+    @sort = 0
+    @completed = false
+  end
+  
+  def update(params)
+    if params.has_key? "title"
+      @title = params["title"] as String
+    end
+    if params.has_key? "order"
+      @sort = (params["order"] as Int64).to_i32
+    end
+    if params.has_key? "completed"
+      @completed = params["completed"] as Bool
+    end
+    return true
   end
 
   sql_mapping({ 
@@ -22,14 +33,5 @@ class Todo < Kemalyst::Model
     sort: { db_type: "INTEGER", type: Int32 },
     completed: { db_type: "BOOLEAN", type: Bool }
   })
-
-  JSON.mapping({
-    uid: String,
-    title: String,
-    order: Int32,
-    completed: Bool,
-    url: String
-  })
-
 
 end
