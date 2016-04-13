@@ -15,5 +15,4 @@ WORKDIR /app/user
 
 RUN shards update
 
-EXPOSE 3000 
-CMD ["crystal", "src/app.cr"]
+CMD ["crystal", "spec"]

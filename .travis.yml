@@ -3,10 +3,11 @@ sudo: required
 language: crystal
 
 services:
-  - docker-compose
+  - docker
 
 before_install:
-- docker-compose build .
+  - docker build -t drujensen/kemalyst .
+  - docker run drujensen/kemalyst /bin/sh -c "cd /app/user; crystal spec"
 
 script:
-- docker-compose run test
+  - crystal spec
