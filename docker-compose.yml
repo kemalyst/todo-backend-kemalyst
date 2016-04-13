@@ -11,7 +11,7 @@ web:
     - pg
   volumes:
     - '.:/app/user'
-test:
+spec:
   build: .
   command: 'crystal spec'
   working_dir: /app/user
