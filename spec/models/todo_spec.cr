@@ -4,7 +4,7 @@ describe Todo do
   it "generate a uid" do
     todo = Todo.new
     todo.title = "Test"
-    todo.uid.size.should eq 64
+    (todo.uid.size > 0).should be_true
   end
 
   it "updates title from params" do

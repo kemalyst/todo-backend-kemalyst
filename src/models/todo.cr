@@ -8,7 +8,7 @@ class Todo < Kemalyst::Model
   
   def initialize
     @id = nil
-    @uid = SecureRandom.hex(32).to_s
+    @uid = SecureRandom.uuid
     @title = ""
     @sort = 0
     @completed = false
