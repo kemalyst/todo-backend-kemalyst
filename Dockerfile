@@ -15,5 +15,5 @@ WORKDIR /app/user
 
 RUN shards update
 
-EXPOSE 8080
+EXPOSE 3000 
 CMD ["crystal", "src/app.cr"]

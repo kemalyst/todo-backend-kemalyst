@@ -28,10 +28,10 @@ class Todo < Kemalyst::Model
   end
 
   sql_mapping({ 
-    uid: { db_type: "VARCHAR(255)", type: String },
-    title: { db_type: "TEXT", type: String },
-    sort: { db_type: "INTEGER", type: Int32 },
-    completed: { db_type: "BOOLEAN", type: Bool }
+    uid: "VARCHAR(255)", 
+    title: "TEXT", 
+    sort: "INTEGER",
+    completed: "BOOLEAN",
   })
 
 end

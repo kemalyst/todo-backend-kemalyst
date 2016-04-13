@@ -28,7 +28,7 @@ describe TodoController::Show do
 
     request = HTTP::Request.new("GET", "/todos/#{todo.uid}")
     io, context = create_context(request) 
-    context.params["uid"] = todo.uid
+    context.params["uid"] = todo.uid as String
     response = TodoController::Show.instance.call(context)
     response.should contain "Test"
   end
