@@ -15,13 +15,6 @@ test:
   build: .
   command: 'crystal spec'
   working_dir: /app/user
-  environment:
-    PORT: 3000
-    DATABASE_URL: 'postgres://postgres:@pg:5432/postgres'
-  ports:
-    - '80:3000'
-  links:
-    - pg
   volumes:
     - '.:/app/user'
 shell:
