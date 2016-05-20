@@ -4,7 +4,7 @@ Implementation of todos-backend in Crystal and Kemalyst. [![Build Status](https:
 
 Kemalyst and this project is a WIP.
 
-Running at (https://todo-backend-kemalyst.herokuapp.com/todos)[https://todo-backend-kemalyst.herokuapp.com/todos]
+Running at [https://todo-backend-kemalyst.herokuapp.com/todos](https://todo-backend-kemalyst.herokuapp.com/todos)
 
 ## Installation
 
