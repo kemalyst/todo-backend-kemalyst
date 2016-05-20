@@ -5,7 +5,13 @@ require "secure_random"
 class Todo < Kemalyst::Model
   adapter pg
 
-  
+  sql_mapping({ 
+    uid: ["VARCHAR(255)", String],
+    title: ["TEXT", String],
+    sort: ["INTEGER", Int32],
+    completed: ["BOOLEAN", Bool]
+  })
+
   def initialize
     @id = nil
     @uid = SecureRandom.uuid
@@ -27,11 +33,5 @@ class Todo < Kemalyst::Model
     return true
   end
 
-  sql_mapping({ 
-    uid: "VARCHAR(255)", 
-    title: "TEXT", 
-    sort: "INTEGER",
-    completed: "BOOLEAN",
-  })
 
 end

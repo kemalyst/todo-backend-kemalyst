@@ -36,5 +36,5 @@ Kemalyst::Application.config do |config|
     Kemalyst::Handler::Params.instance,
     Kemalyst::Handler::Cors.instance,  # Add support for CORS headers
     Kemalyst::Handler::Router.instance
-  ] 
+  ] of HTTP::Handler 
 end
