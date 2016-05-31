@@ -1,4 +1,5 @@
 require "../src/controllers/*"
+include Kemalyst::Handler
 
 # uncomment the next line to enable Basic Authentication for the whole
 # application.  You can specify a specific path and method types if you want
