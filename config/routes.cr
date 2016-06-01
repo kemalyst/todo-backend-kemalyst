@@ -8,7 +8,7 @@ include Kemalyst::Handler
 # all    "/*",                Kemalyst::Handler::BasicAuth.instance("admin", "password")
 
 get    "/todos",            TodoController::Index.instance
-post   "/todos",            TodoController::Create.instance  
+post   "/todos",            TodoController::Create.instance
 delete "/todos",            TodoController::DeleteAll.instance
 get    "/todos/:uid",       TodoController::Show.instance
 patch  "/todos/:uid",       TodoController::Update.instance
