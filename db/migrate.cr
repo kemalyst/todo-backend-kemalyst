@@ -1,6 +1,6 @@
 require "kemalyst"
 require "../src/models/*"
 
-Todo.drop
-Todo.create
+Todo.migrate
+Todo.prune
 
