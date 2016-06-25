@@ -15,14 +15,14 @@ describe Todo do
   end
 
   it "updates sort from param order" do
-    params = {"order" => 253_i64} of String => HTTP::Server::Context::ParamTypes
+    params = {"order" => "253"} of String => HTTP::Server::Context::ParamTypes
     todo = Todo.new
     todo.update(params)
     todo.sort.should eq 253
   end
 
   it "updates completed from params" do
-    params = {"completed" => true} of String => HTTP::Server::Context::ParamTypes
+    params = {"completed" => "true"} of String => HTTP::Server::Context::ParamTypes
     todo = Todo.new
     todo.update(params)
     todo.completed.should be_true

@@ -15,7 +15,7 @@ describe TodoController::Index do
 
     request = HTTP::Request.new("GET", "/todos")
     io, context = create_context(request) 
-    response = TodoController::Index.instance.call(context)
+    response = TodoController::Index.instance.call(context) as String
     response.should contain "Test"
   end
 end
@@ -29,7 +29,7 @@ describe TodoController::Show do
     request = HTTP::Request.new("GET", "/todos/#{todo.uid}")
     io, context = create_context(request) 
     context.params["uid"] = todo.uid as String
-    response = TodoController::Show.instance.call(context)
+    response = TodoController::Show.instance.call(context) as String
     response.should contain "Test"
   end
 end
@@ -52,7 +52,7 @@ describe TodoController::DeleteAll do
 
     request = HTTP::Request.new("DELETE", "/todos")
     io, context = create_context(request) 
-    response = TodoController::DeleteAll.instance.call(context)
+    response = TodoController::DeleteAll.instance.call(context) as String
     response.should contain "Success"
   end
 end

@@ -1,5 +1,6 @@
 require "spec"
 require "mocks/spec"
+require "kemalyst"
 require "../config/*"
 
 def create_context(request)

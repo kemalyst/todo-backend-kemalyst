@@ -1,5 +1,4 @@
-require "kemalyst"
-require "kemalyst/adapter/pg"
+require "kemalyst-model/adapter/pg"
 require "secure_random"
 
 class Todo < Kemalyst::Model
@@ -25,10 +24,10 @@ class Todo < Kemalyst::Model
       @title = params["title"] as String
     end
     if params.has_key? "order"
-      @sort = (params["order"] as Int64).to_i32
+      @sort = (params["order"] as String).to_i32
     end
     if params.has_key? "completed"
-      @completed = params["completed"] as Bool
+      @completed = (params["completed"] == "true")
     end
     return true
   end
