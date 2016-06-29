@@ -1,4 +1,4 @@
-Kemalyst::Handler::Cors.config do |config|
+Kemalyst::Handler::CORS.config do |config|
   # limit what is allowed from Cross Site Origin Sharing
   # config.allow_origin = "*"
   # config.allow_headers = "Accept, Content-Type"
