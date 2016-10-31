@@ -31,7 +31,7 @@ Kemalyst::Application.config do |config|
 
   # handlers will be chained in the order provided
   config.handlers = [
-    Kemalyst::Handler::Logger.instance(config.logger),
+    Kemalyst::Handler::Logger.instance,
     Kemalyst::Handler::Error.instance,
     Kemalyst::Handler::Params.instance,
     Kemalyst::Handler::CORS.instance,  # Add support for CORS headers

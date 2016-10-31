@@ -4,7 +4,7 @@ describe Todo do
   it "generate a uid" do
     todo = Todo.new
     todo.title = "Test"
-    ((todo.uid as String).size > 0).should be_true
+    ((todo.uid.as(String)).size > 0).should be_true
   end
 
   it "updates title from params" do
@@ -27,6 +27,5 @@ describe Todo do
     todo.update(params)
     todo.completed.should be_true
   end
-
 end
 

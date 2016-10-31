@@ -21,16 +21,14 @@ class Todo < Kemalyst::Model
   
   def update(params)
     if params.has_key? "title"
-      @title = params["title"] as String
+      @title = params["title"].as(String)
     end
     if params.has_key? "order"
-      @sort = (params["order"] as String).to_i32
+      @sort = (params["order"].as(String)).to_i32
     end
     if params.has_key? "completed"
       @completed = (params["completed"] == "true")
     end
     return true
   end
-
-
 end
